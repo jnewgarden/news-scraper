@@ -7,6 +7,8 @@ $(document).ready(function () {
         $(".dropdown").toggleClass("is-open");
     });
 
+
+
     // Grab the articles as a json when page loads, append to the page
     $.getJSON("/articles", function (data) {
         console.log(res);
@@ -18,9 +20,10 @@ $(document).ready(function () {
         }
     });
 
+    // Put scrapes into an object
+    $(document).on("click", ".scrape-results", funtion() {
 
-
-    console.log(res.json);
+    });
 
     // Save article button changes the saved property of the article model from false to true
     $(document).on("click", ".save-article", function () {

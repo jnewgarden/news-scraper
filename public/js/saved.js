@@ -22,33 +22,6 @@ $(document).ready(function () {
         }
     });
 
-    // Comment button opens the comments modal & displays any comments
-    $(document).on("click", ".comments-button", function () {
-        // Open the comments modal
-        $(".modal").toggleClass("is-active");
-        // Get article by article ID
-        var articleID = $(this).attr("data-id");
-        // Now make an ajax call for the Article
-        $.ajax({
-            method: "GET",
-            url: "/articles/" + articleID
-        }).done(function (data) {
-            // Update modal header
-            $("#comments-header").html("Article Comments (ID: " + data._id + ")");
-            // If the article has comments
-            if (data.comments.length !== 0) {
-                // Clear out the comment div
-                $("#comments-list").empty();
-                for (i = 0; i < data.comments.length; i++) {
-                    // Append all article comments
-                    $("#comments-list").append("<div class='comment-div'><p class='comment'>" + data.comments[i].body + "</p></div>");
-                }
-            }
-            // Append save comment button with article's ID saved as data-id attribute
-            $("footer.modal-card-foot").html("<button id='save-comment' class='button is-success' data-id='" + data._id + "'>Save Comment</button>")
-        });
-    });
-
     // Modal X button closes modal and removes comments
     $(document).on("click", ".delete", function () {
         $(".modal").toggleClass("is-active");
