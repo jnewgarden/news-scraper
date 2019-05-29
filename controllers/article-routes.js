@@ -89,23 +89,23 @@ router.post("/save/:id", function (req, res) {
 // ============= ROUTES FOR SAVED ARTICLES PAGE =============//
 
 // Grab an article by it's ObjectId
-router.get("/articles/:id", function (req, res) {
-    // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
-    Article.findOne({ "_id": req.params.id })
-        // ..and populate all of the comments associated with it
-        .populate("comments")
-        // now, execute our query
-        .exec(function (error, doc) {
-            // Log any errors
-            if (error) {
-                console.log(error);
-            }
-            // Otherwise, send the doc to the browser as a json object
-            else {
-                res.json(doc);
-            }
-        });
-});
+// router.get("/articles/:id", function (req, res) {
+//     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+//     Article.findOne({ "_id": req.params.id })
+//         // ..and populate all of the comments associated with it
+//         .populate("comments")
+//         // now, execute our query
+//         .exec(function (error, doc) {
+//             // Log any errors
+//             if (error) {
+//                 console.log(error);
+//             }
+//             // Otherwise, send the doc to the browser as a json object
+//             else {
+//                 res.json(doc);
+//             }
+//         });
+// });
 
 // // Remove a saved article
 // router.post("/unsave/:id", function (req, res) {
